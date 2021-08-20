@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "日历",
+  "enablePullDownRefresh": false,
+  "disableScroll": true ,
+  "usingComponents": {}
+}

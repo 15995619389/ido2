@@ -1,0 +1,41 @@
+<!--pages/addressList/addressList.wxml-->
+<view class="page">
+	<view class="page-header" style="{{ isStyle ? 'box-shadow:0 5px 10px -5px #ddd' : '' }}">
+		<input class="weui-input" type="text" confirm-type="search" bindinput="onSearchFocues" placeholder="搜索地址" bindconfirm="onSearch">
+		<icon type="search" bindtap="onSearch"></icon>
+		</input>
+	</view>
+	<view class="list">
+		<view class="item item1">
+			<view class="meta" bindtap="onSelectAdd" data-address="{{ noAddress }}">不显示位置</view>
+		</view>
+		<view wx:if="{{ province != '' }}" class="item item2" bindtap="onSelectAdd" data-address="{{ province }}">
+			<view class="item-city-icon">
+				<image src="../../images/provinces_icon.png" class="poster2"></image>
+			</view>
+			<view class="meta">{{ province }}</view>
+		</view>
+		<view wx:for="{{ addressList }}" wx:key="i" class="item" data-index="{{ index }}" bindtap="onSelectAdd" data-address="{{ item.title }}">
+			<view class="item-city-icon">
+				<image src="../../images/shape.png" class="poster"></image>
+			</view>
+			<view class="meta">
+				<view class="meta_title">{{ item.title }}</view>
+				<view class="meta_tip" hidden="{{ item.address.length > 0 ? false : true }}">{{ item.address }}</view>
+			</view>
+			<!-- <view class="item-icon">
+          <icon class="success_icon" type="success_no_circle" size="23"></icon>
+        </view> -->
+		</view>
+		<view wx:if="{{ locationAuthorized && isItemShow }}" class="tips">
+			<view wx:if="{{ hasMore }}">
+				<image src="../../images/loading.gif" mode="aspectFill" />
+				<text>搜索附近地址中...</text>
+			</view>
+			<view wx:else>
+				<text>没有更多内容了....</text>
+			</view>
+		</view>
+	</view>
+
+</view>

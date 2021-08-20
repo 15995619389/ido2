@@ -1,0 +1,118 @@
+<!--index.wxml-->
+<view class="page">
+	<view class="page-header">
+    <view class="calendar_header">
+			<view class="top">
+        <picker mode="date" fields="month" value="{{startDate}}" start="2000-01" end="{{ endDate }}" bindchange="bindDateChange">
+          <view class="picker">
+            {{currenYear}}年{{month}}月
+            <icon class="iconfont iconzuoyoujiantou1"></icon>
+          </view>
+        </picker>
+      </view>
+			<view class="week">
+				<view wx:for="{{ date }}" wx:key="*this">{{ item }}</view>
+			</view>
+		</view>
+	</view>
+	<view class="page-content">
+    <view class="calendar_body">
+      <scroll-view scroll-y 
+      scroll-top="{{ scrollTop }}"
+      scroll-with-animation="{{ false }}"
+      refresher-default-style="white"
+			bindscroll="onChangeScroll"
+      refresher-background="#fff"
+      bindscrolltoupper="bindscrolltoupper" 
+      bindscrolltolower="bindscrolltolower" style="width:100%;height:100%">
+        <view class='date-box'>
+          <view class="date-content">
+            <block wx:for="{{ allDate }}" wx:key='i' wx:for-item="items" >
+              <view  class='date-head' data-year='{{items.year}}' data-month='{{items.month}}' data-datenum='{{items.allDay.dateNum}}'  data-type='{{ items.allDay.basic }}'  bindtap="onDateil">
+                <view wx:if="{{ items.allDay.dateNum != 0 }}" style="{{ isToday == items.allDay.isToday ? 'color:#49C6FF' : '' }}">{{ isToday == items.allDay.isToday ? '今天' : items.allDay.dateNum}}</view>
+                <view wx:if="{{ items.allDay.dateNum != 0 }}">
+                  <view wx:for="{{ items.allDay.basic }}" wx:for-item="basicItem" wx:key="j"> 
+                    <view wx:if="{{ basicItem.record.type == 1 }}" class="statu_banlv">
+                      <view class="statu">
+                        <text>{{basicItem[index-1]}}</text>
+                        <view wx:if="{{ basicItem.record.isStatus == 0 }}">
+                          <image  src="../../images/small1.png" class="small_icon"></image>
+                        </view>
+                        <view wx:if="{{ basicItem.record.isStatus == 1 }}">
+                          <image  src="../../images/small1.png" class="small_icon"></image>
+                        <view class="statu1_1 statu_color2"><view class="wite_round"></view></view>
+                        </view>
+                        <view wx:if="{{ basicItem.record.isStatus == 3 }}" class="statu1_2 statu_color2"></view>
+                        <view wx:if="{{ basicItem.record.isStatus == 2 }}" class="statu1_3 statu_color2"><view class="wite_round"></view></view>
+                      </view>
+                    </view>
+                    <view wx:if="{{ basicItem.record.type == 2 }}" class="statu_feiji">
+                      <view class="statu">
+                      <!--  0：图标 1：右边 2：左边  3：中间 -->
+                        <view wx:if="{{ basicItem.record.isStatus == 0 }}">
+                          <image src="../../images/small2.png" class="small_icon"></image>
+                        </view>
+                        <view wx:if="{{ basicItem.record.isStatus == 1 }}">
+                          <image src="../../images/small2.png" class="small_icon"></image>
+                        <view class="statu1_1 statu_color1"><view class="wite_round"></view></view>
+                        </view>
+                        <view wx:if="{{ basicItem.record.isStatus == 3 }}" class="statu1_2 statu_color1"></view>
+                        <view wx:if="{{ basicItem.record.isStatus == 2 }}"  class="statu1_3 statu_color1"><view class="wite_round"></view></view>
+                      </view>
+                    </view>
+                    <view wx:if="{{ basicItem.record.type == 3 }}" class="statu_mengyi">
+                      <view class="statu">
+                        <view wx:if="{{ basicItem.record.isStatus == 0 }}">
+                          <image src="../../images/small3.png" class="small_icon"></image>
+                        </view>
+                        <view wx:if="{{ basicItem.record.isStatus == 1 }}">
+                          <image src="../../images/small3.png" class="small_icon"></image>
+                        <view class="statu1_1 statu_color3"><view class="wite_round"></view></view>
+                        </view>
+                        <view wx:if="{{ basicItem.record.isStatus == 3 }}" class="statu1_2 statu_color3"></view>
+                        <view wx:if="{{ basicItem.record.isStatus == 2 }}" class="statu1_3 statu_color3"><view class="wite_round"></view></view>
+                      </view>
+                    </view>
+                    <view wx:if="{{ basicItem.record.type == 4 }}" class="statu statu_jinyu">
+                      <view wx:if="{{ basicItem.record.isStatus == 0 }}">
+                        <image src="../../images/small4.png" class="small_icon"></image>
+                      </view>
+                      <view wx:if="{{ basicItem.record.isStatus == 1 }}">
+                        <image src="../../images/small4.png" class="small_icon"></image>
+                        <view class="statu1_1 statu_color4"><view class="wite_round"></view></view>
+                      </view>
+                      <view wx:if="{{ basicItem.record.isStatus == 3 }}" class="statu1_2 statu_color4"></view>
+                      <view wx:if="{{ basicItem.record.isStatus == 2 }}" class="statu1_3 statu_color4"><view class="wite_round"></view></view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+	</view>
+	<view class="calendar_footer">
+      <view class="footer_item">
+        <!-- <view class="round"></view> -->
+        <image src="../../images/small2.png" class="round"></image>
+        <text>飞机</text>
+      </view>
+      <view class="footer_item">
+        <!-- <view class="round round2"></view> -->
+        <image src="../../images/small1.png" class="round"></image>
+        <text>伴侣</text>
+      </view>
+      <view class="footer_item">
+        <!-- <view class="round round3"></view> -->
+        <image src="../../images/small3.png" class="round"></image>
+        <text>梦遗</text>
+      </view>
+      <view class="footer_item">
+        <!-- <view class="round round4"></view> -->
+        <image src="../../images/small4.png" class="round"></image>
+        <text>禁欲</text>
+      </view>
+    </view>
+</view>

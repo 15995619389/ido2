@@ -1,0 +1,182 @@
+/**app.wxss**/
+.custom{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 45px;
+  background: #fff;
+  z-index: 9;
+  line-height: 45px;
+}
+.custom .iconfont {
+  font-family: "iconfont" !important;
+  /* font-size: 40rpx; */
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.custom .iconfanhui{
+  float: left;
+  width: 100rpx;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  margin-right: 30%;
+
+}
+.iconfanhui:before {
+  content: "\e609";
+  
+}
+.custom text{
+  color: #030303;
+  font-size: 34rpx;
+  font-weight: 500;
+  /* max-width: 280rpx; */
+}
+.empty_custom{
+  height: 45px;
+  width: 100%;
+}
+.btn-area{
+  width: 100%;
+  padding-top: 60rpx;
+  padding-bottom: 100rpx;
+  height: auto;
+  overflow: hidden;
+}
+.btn-area button, .submit_btn{
+  width: 500rpx !important;
+  height: 98rpx;
+  line-height: 98rpx;
+  background: #4dc0ff !important;
+  border-color: #4dc0ff !important;
+  font-size: 30rpx;
+  font-weight: 500;
+  padding: 0 0;
+  border-radius: 40px;
+  color: #fff !important;
+}
+.add{
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  bottom: 44rpx;
+  right: 30rpx;
+}
+
+.time-model{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+.mask{
+  background: rgba(0,0,0,1);
+  opacity: 0.49770000000000003;
+  width: 100%;
+  height: 100%;
+}
+.modelbox{
+  position:fixed;
+  left: 0;
+  right: 0;
+  bottom:0;
+  width:100%;
+  background: #fff;
+}
+.time-model picker-view-column{
+  text-align: center;
+}
+.time-model view.model_picker{
+  position: relative;
+}
+.time-model .button_model{
+  height: 90rpx;
+  width: 100%;
+  background: #fff;
+  position: relative;
+  border-bottom: 1px solid #f9f9f9;
+}
+.time-model .button_model text{
+    color: #888;
+    position: absolute;
+    background:transparent;
+    border: none;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    width: 200rpx;
+}
+.time-model .button_model text:first-child{
+  left: 30rpx;
+}
+.time-model .button_model text:last-child{
+  right: 30rpx;
+  color: #2fb42e;
+  text-align: right;
+}
+
+.up{
+  animation: slideContentUp .3s;
+  -webkit-animation:slideContentUp .3s;
+}
+.down{
+  animation: slideContentDown 2s;
+  -webkit-animation:slideContentDown 2s;
+}
+@keyframes slideContentUp {
+  from {
+    /*设置为正数则底部弹出来，负数则相反*/
+    transform: translateY(100%); 
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes slideContentDown {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.model-title{
+  text-align: center;
+  height:52rpx;
+  font-size:38rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  line-height:52rpx;
+}
+.model-item{
+  margin: 30rpx 0 50rpx;
+  height:50rpx;
+  font-size:34rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(166,166,166,1);
+  line-height:50rpx;
+  text-align: center;
+}
+.border-bottom{
+  position: fixed;
+  bottom: 0;
+  height: 2rpx;
+  width: 100%;
+  background: #f2f2f2;
+}
+.border-top{
+  position: fixed;
+  top: 0;
+  height: 2rpx;
+  width: 100%;
+  background: #f2f2f2;
+}

@@ -1,0 +1,48 @@
+<!--pages/detail/detail.wxml-->
+<view class="detail-page">
+	<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+		<view class="iconfont iconfanhui" bindtap="onGoback"></view>
+		<text>当月详情</text>
+	</view>
+	<view class="page-info" style="padding-top:{{ statusBarHeight }}px">
+		<view class="detail-header">{{ year }}年{{ month }}月</view>
+		<view wx:for="{{ detailList }}" wx:key="j" wx:for-item="items" class="detail-item" id="detail{{items.record.nodeId}}">
+			<view class="item-header ">
+				<view class="header-left">
+					<image wx:if="{{ items.record.type == 1 }}" src="../../images/icon1_1.png"></image>
+					<image wx:elif="{{ items.record.type == 2 }}" src="../../images/icon2_2.png"></image>
+					<image wx:elif="{{ items.record.type == 3 }}" src="../../images/icon3_3.png"></image>
+					<image wx:else src="../../images/icon4_4.png"></image>
+					{{ items.record.timeTitle }}
+				</view>
+				<view hidden="{{true}}" class="header-right" 
+					data-recordid="{{ items.record.recordId }}"
+					data-type="{{ items.record.type }}"
+					data-duration="{{ items.record.duration }}"
+					data-location="{{ items.record.location }}"
+					data-code="{{ items.record.code }}"
+					data-idea="{{ items.record.idea }}"
+					data-time="{{ items.record.time }}"
+					data-images="{{ items.cover }}"
+					bindtap="onUpdate">编辑</view>
+			</view>
+			<view class="item-content">
+				<view class="content-text" style="{{ items.cover.length > 0 ? 'padding-bottom: 10rpx;' : '' }}"><text>{{ items.record.idea === undefined ? '您今天还没有留下心情哦！' : items.record.idea }}</text></view>
+				<view wx:if="{{ items.cover.length == 1 }}">
+					<image mode="aspectFill" wx:for="{{ items.cover }}" wx:for-item="itemName" wx:key="k" src="{{ itemName.url }}" class="img1" data-list="{{ items.cover }}" data-src="{{ itemName.url }}" bindtap="onPreviewImage"></image>
+				</view>
+				<view wx:else class="item-img3">
+					<image mode="aspectFill" wx:for="{{ items.cover }}" wx:for-item="itemName" wx:key="i" src="{{ itemName.url }}" class="img3" data-list="{{ items.cover }}" data-src="{{ itemName.url }}" bindtap="onPreviewImage"></image>
+				</view>
+			</view>
+			<view class="item-footer">
+				<view class="city_left" hidden="{{ items.record.location == '' || items.record.location == undefined }}">
+					<image src="../../images/address_icon2.png" class="city_icon"></image>
+					{{ items.record.location }}
+				</view>
+				<view class="city_right" data-id="{{ items.record.recordIdStr }}"  bindtap="onDelete">删除</view>
+			</view>
+		</view>
+	</view>
+	<image bindtap="onAdd" src="../../images/add.png" class="add"></image>
+</view>

@@ -1,0 +1,6 @@
+<!--pages/my/about/about.wxml-->
+<view class="about-page">
+  <image src="../../../images/logo.png" class="logo"></image>
+  <view class="about_text">版本号：1.0</view>
+</view>
+<view class="border-top"></view>

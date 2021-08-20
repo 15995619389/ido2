@@ -1,0 +1,95 @@
+/* pages/my/my.wxss */
+.my-page{
+  overflow: hidden; 
+ }
+ .page-header{
+   width: 100%;
+   height: 454rpx;
+   overflow: hidden;
+   position: relative;
+ }
+ .header-bg{
+   width: 100%;
+   height: 100%;
+ }
+ .set{
+   width: 40rpx;
+   height: 40rpx;
+   position: absolute;
+   top: 76rpx;
+   left: 44rpx;
+   z-index: 2;
+ }
+ .user{
+   width: 100%;
+   height: auto;
+   position: absolute;
+   top: 158rpx;
+   left: 0;
+   z-index: 2;
+   text-align: center;
+ }
+ .user_bg{
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  margin-bottom: 30rpx;
+ }
+ .user view{
+  text-align: center;
+  /* height:50rpx; */
+  font-size:36rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:50rpx;
+  overflow: hidden;
+ }
+ .user .goto-view{
+   font-size: 32rpx;
+   line-height: 1;
+ }
+ .page-content{
+   padding: 0 32rpx;
+ }
+ .page-content .item{
+   margin-top: 10rpx;
+   height:108rpx;
+   line-height:108rpx;
+   font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+    color:rgba(51,51,51,1);
+   border-bottom: 1px solid #f0f0f0;
+   position: relative;
+ }
+ .wsui-btn__hover_list {
+   opacity: 0.9;
+   background: #f7f7f7;
+ }
+ .my_set{
+   position: absolute;
+   top: 30rpx;
+   right: 32rpx;
+   width: 24rpx;
+   height: 36rpx;
+ }
+ .my_set2{
+  position: absolute;
+  top: 34rpx;
+  right: 30rpx;
+  width: 26rpx;
+  height: 34rpx;
+}
+.my_set3{
+  position: absolute;
+  top: 36rpx;
+  right: 24rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.user .userId{
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+}

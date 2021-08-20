@@ -1,0 +1,106 @@
+<!--pages/comCity/comCity.wxml-->
+<view class="city-page">
+	<view class="page-header">
+    <image src="../../images/city_banner.png" class="header_bg"></image>
+    <view class="header_tip">
+      <view class="header_tip_left" wx:if="{{ isLogin }}"  bindtap="onOpenProvince">
+        <image src="../../images/address_icons.png" class="icon_add"></image>
+				<view wx:if="{{ !isLocation }}" class="add_text">{{ selectProvince }}</view>
+				<icon wx:if="{{ !isLocation }}" class="iconfont iconarrow-left"></icon>
+				<view wx:if="{{ isLocation }}" class="add_text add_text2">未开启定位，默认展示上海数据</view>
+      </view>
+			<view wx:else class="header_tip_left">
+				<image src="../../images/address_icons.png" class="icon_add"></image>
+				<view class="add_text">未登录，暂无数据</view>
+			</view>
+      <view class="header_tip_right">
+        <view class="time_text">
+					{{ year }}年{{ month }}月
+					<!-- <picker mode="date" fields="month" value="{{date}}" end="{{ endDate }}" bindchange="bindDateChange">
+					</picker> -->
+				</view>
+        <!-- <icon class="iconfont iconarrow-left"></icon> -->
+      </view>
+    </view>
+  </view>
+	<view wx:if="{{ 1 == 1 }}" class="page-content">
+		<view class="item-header">
+			<view class="item-header_left">
+				<view class="item_number"><text>{{ total }}</text>次</view>
+				<view class="item_text">本月该地区记录总数</view>
+			</view>
+			<view class="item-header_right">
+				<image src="../../images/number.png"></image>
+			</view>
+		</view>
+		<view class="view-item">
+			<view class="item_left">
+				<image src="../../images/icon1_1.png" class="icon1"></image>
+				<text>x{{ partnerCount }}</text>
+			</view>
+			<view class="item_right">
+				<view class="item_tip">您已超过当前区域<text>{{ partnerPercent }}%</text>的用户</view>
+				<view class="item_tip2">{{ partnerTips }}</view>
+			</view>
+		</view>
+		<view class="view-item">
+			<view class="item_left">
+				<image src="../../images/icon2_2.png" class="icon2"></image>
+				<text>x{{ planeCount }}</text>
+			</view>
+			<view class="item_right">
+				<view class="item_tip">您已超过当前区域<text>{{ planePercent }}%</text>的用户</view>
+				<view class="item_tip2">{{ planeTips }}</view>
+			</view>
+		</view>
+		<view class="view-item">
+			<view class="item_left">
+				<image src="../../images/icon3_3.png" class="icon3"></image>
+				<text>x{{ dreamCount }}</text>
+			</view>
+			<view class="item_right">
+				<view class="item_tip">您已超过当前区域<text>{{ dreamPercent }}%</text>的用户</view>
+				<view class="item_tip2">{{ dreamTips }}</view>
+			</view>
+		</view>
+		<!-- <view class="view-item">
+			<view class="item_left">
+				<image src="../../images/icon4_4.png" class="icon4"></image>
+				<text>x{{ abstinenceCount }}</text>
+			</view>
+			<view class="item_right">
+				<view class="item_tip">您已超过当前区域<text>18%</text>的用户</view>
+				<view class="item_tip2">已经很棒啦<text decode="true">&nbsp;&nbsp;继续加油哦</text> </view>
+			</view>
+		</view> -->
+	</view>
+	<view wx:else class="page-no-content">
+		<image src="../../image/404.png" class="no_img"></image>
+		<view class="no-tip">
+			<view >本月你还没有开始你的行为，</view>
+			<view>快去吧</view>
+			<button bindtap="onAddress">切换地址</button>
+		</view>
+	</view>
+	<view hidden="{{ cityShow }}" class="city-model">
+		<view class="mask" bindtap="onCloseProvince"></view>
+		<view class="{{ cityShow ? 'model_page': 'model_page up' }}">
+			<view class="user_address">
+				<view class="add_left">您所在地区</view>
+				<view class="add_right" bindtap="onSelectCurProvince">
+					<image src="../../images/address_icon2.png"></image>
+					<text>{{ currentProvince }}</text>
+				</view>
+			</view>		
+			<view class="view-box">
+      <view class="view_left">
+        <view wx:for="{{ cityTitle }}" wx:key="i" data-index="{{index}}" bindtap="onClickCity" class="{{ currentIndex == index ? 'view_item_active view_item' : 'view_item' }}">{{ item }}</view>
+      </view>
+      <view class="view_right {{ currentIndex == 2 || currentIndex == 3 ? 'view_right2' : '' }}">
+        <view class="item {{ selectProvince == item.fullname ? 'active' : '' }}" wx:for="{{ setlectProvinceList }}" wx:key="id" data-item="{{ item }}" bindtap="onSelectProvince">{{ item.fullname }}</view>
+      </view>
+    </view>
+		</view>
+	</view>
+</view>
+<view class="border-bottom"></view>

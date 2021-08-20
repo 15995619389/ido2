@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/login/login",
+    "pages/my/my",
+    "pages/updatePassword/updatePassword",
+    "pages/setGuide/setGuide",
+    "pages/add/add",
+    "pages/comCity/comCity",
+    "pages/newPassword/newPassword",
+    "pages/record/record",
+    "pages/addressList/addressList",
+    "pages/guide/guide",
+    "pages/out/out",
+    "pages/privacy/privacy",
+    "pages/calendar/calendar",
+    "pages/detail/detail",
+    "pages/start/start",
+    "pages/my/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我行",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#8E8E93",
+    "selectedColor": "#49C6FF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "日历",
+        "iconPath": "./images/calendar.png",
+        "selectedIconPath": "./images/calendar2.png"
+      },
+      {
+        "pagePath": "pages/comCity/comCity",
+        "text": "同城",
+        "iconPath": "./images/city.png",
+        "selectedIconPath": "./images/city2.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人",
+        "iconPath": "./images/my.png",
+        "selectedIconPath": "./images/my2.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "style": "v2",
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,23 @@
+/* pages/guide/guide.wxss */
+.page{
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+.guide_bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.openBtn{
+  width: 368rpx;
+  height: 126rpx;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -184rpx;
+}

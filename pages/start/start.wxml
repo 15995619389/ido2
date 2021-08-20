@@ -1,0 +1,10 @@
+<view class="page" >
+  <image src="../../images/start_bg.png" class="bg"></image>
+  <view class="title">欢迎使用</view>
+  
+  <view class="content">
+    <image src="../../images/logo.png" class="logo"></image>
+    <view class="tip">您的性健康管理日历</view>
+  </view>
+  <view class="footer">我行会为您严守隐私</view>
+</view>

@@ -1,0 +1,22 @@
+/* pages/my/about/about.wxss */
+.about-page{
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  padding-top: 156rpx;
+}
+.logo{
+  width: 156rpx;
+  height: 156rpx;
+  margin: 0 auto
+}
+.about_text{
+  margin-top: 20rpx;
+  text-align: center;
+  height:40rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+}

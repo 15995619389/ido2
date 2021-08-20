@@ -1,0 +1,26 @@
+<view class="page" >
+  <image src="../../images/start_bg.png" class="bg"></image>
+  <!-- <view class="page-content">
+    
+  </view> -->
+  <view class="title">欢迎使用</view>
+  <view class="content">
+    <image src="../../images/logo.png" class="logo"></image>
+    <view class="tip">您的性健康管理日历</view>
+    <view class="tip-p">我行会为您严守隐私</view>
+    
+  </view>
+  <view class="footer">
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="login">微信登录</button>
+    <view class="tip2 tip3">
+      <text class="text1">记录性健康数据</text>
+      <view class="text-splice"></view>
+      <text class="text2" decode>查看过往的记录</text>
+    </view>
+    <view class="tip2">
+      <text class="text1">同城数据作对比</text>
+      <view class="text-splice"></view>
+      <text class="text2">根据记录来分析</text>
+    </view>
+  </view>
+</view>

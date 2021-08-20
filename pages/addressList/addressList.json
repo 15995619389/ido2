@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "所在位置",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "usingComponents": {}
+}

@@ -1,0 +1,126 @@
+<!--pages/setGuide/setGuide.wxml-->
+<view class="page">
+  <view class="page-header">
+    <view class="skip" bindtap="onRouter">跳过</view>
+    <view class="tip">回忆一下您的最近一次性行为吧</view>
+  </view>
+  <view class="page-content">
+    <view class="item">
+      <view class="h4">解决方式</view>
+      <view class="item-icon">
+        <view class="item_left" data-index="{{ 1 }}" bindtap="onChangeStatus">
+          <image src="{{ type == 1 ? '../../images/icon1_1.png' : '../../images/icon1.png' }}"></image>
+          <view style="{{ type == 1 ? 'color:#FF88B6' : 'color:#A6A6A6' }}">伴侣</view>
+        </view>
+        <view class="item_left" data-index="{{ 2 }}" bindtap="onChangeStatus">
+          <image src="{{ type == 2 ? '../../images/icon2_2.png' : '../../images/icon2.png' }}"></image>
+          <view style="{{ type == 2 ? 'color:#F1B91A' : 'color:#A6A6A6' }}">飞机</view>
+        </view>
+        <view class="item_left" data-index="{{ 3 }}" bindtap="onChangeStatus">
+          <image src="{{ type == 3 ? '../../images/icon3_3.png' : '../../images/icon3.png' }}"></image>
+          <view style="{{ type == 3 ? 'color:#49C6FF' : 'color:#A6A6A6' }}">梦遗</view>
+        </view>
+        <!-- <view class="item_left" data-index="{{ 4 }}" bindtap="onChangeStatus">
+          <image src="{{ type == 4 ? '../../images/icon4_4.png' : '../../images/icon4.png' }}"></image>
+          <view>禁欲</view>
+        </view> -->
+      </view>
+    </view>
+    <view class="item" hidden="{{ type != 1 }}">
+      <view class="h4">持续时长？</view>
+      <view class="item-picker">
+        <image wx:if="{{isDurationShow}}" src="../../images/times.png" class="time_icon"></image>
+        <image wx:else src="../../images/times1.png" class="time_icon"></image>
+        <view class="item-text">
+          <picker bindchange="onChangeDuration" value="{{durationVal}}" range="{{durationList}}">
+            <text wx:if="{{ isDurationShow }}">持续时长</text> 
+            <text wx:else>{{ duration }}分钟</text>
+            <text class="iconfont iconleft-arrow"></text>
+            <text class="text_tip" hidden="{{ isDurationShow }}">请选择</text> 
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="h4">它发生在？</view>
+      <view class="item-picker">
+        <image wx:if="{{location == ''}}" src="../../images/address_icon.png" class="address_icon"></image>
+        <image wx:else src="../../images/address_icon2.png" class="address_icon"></image>
+        <view class="item-text" bindtap="onGoto">
+          <text wx:if="{{ location == '' }}">请选择地址</text>
+          <text wx:else>{{ location }}</text>
+          <text class="iconfont iconleft-arrow"></text>
+          <text class="text_tip" hidden="{{ location != '' }}">请选择</text> 
+        </view>
+      </view>
+      <view class="item-picker">
+        <image wx:if="{{isDayShow}}" src="../../images/time_icon.png" class="time_icon"></image>
+        <image wx:else src="../../images/time_icon2.png" class="time_icon"></image>
+        <view class="item-text">
+          <picker mode="date" value="{{curTime}}" start="2000-01-01" end="{{ curDate }}" bindchange="onChangeDate">
+            <text wx:if="{{ isDayShow }}">时间</text> 
+            <text wx:else style="float:left;margin-right:10rpx">{{ time }}  </text>
+            <text wx-if="{{ !isDayShow }}" style="float:left">{{ h }}:{{ m }}
+              </text>
+            <text class="iconfont iconleft-arrow"></text>
+            <text class="text_tip" hidden="{{ !isDayShow }}">请选择</text>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="item" style="overflow:visible">
+      <view class="h4">您的年龄？</view>
+      <view class="item-picker">
+        <view class="item-text" style="padding-left:0">
+          <picker bindchange="onChangeAge" value="{{age}}" range="{{ageList}}">
+            <text wx:if="{{ isAgeShow }}">年龄</text> 
+            <text wx:else>{{age}}岁</text>
+            <text class="iconfont iconleft-arrow"></text>
+            <text class="text_tip" hidden="{{ !isAgeShow }}">请选择</text> 
+          </picker>
+        </view>
+      </view>
+      <view class="view-textarea" wx:if="{{ isTimeShow }}">
+        <textarea bindblur="onTextAreaBlur" show-confirm-bar="{{ false }}" auto-height="{{ true }}" placeholder="写下您对这一次解决的感受（可选）" />
+      </view>
+      <view class="view-upload-img">
+        <view wx:for="{{ UploadImgs }}" wx:key="index" class="img-list">
+          <view class="remove-img" data-url="{{ item }}" bindtap="onRemoveImg">X</view>
+          <image mode="aspectFill" src="{{ item }}" data-src="{{ item }}"  bindtap="onPreviewImage"></image>
+        </view>
+        <view wx:if="{{ UploadImgs.length != 9 }}" class="upload-img-btn" bindtap="onUploadImg" style="float:left">
+          <image src="../../images/up.png" class="up_img"></image>
+          <view class="up_text">上传照片</view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button type="primary" bindtap="onSubmit" class="submit_btn">保 存</button>
+    </view>
+    <!-- 日期模态框 -->
+    <view hidden="{{ isTimeShow }}" class="time-model">
+      <view class="mask" bindtap="closeTime"></view>
+      <view class="modelbox {{ isTimeShow ? '' : 'up' }}">
+        <view class="model_picker">
+          <view class="button_model">
+            <text class="close" catchtap='closeTime'>取消</text>
+            <text class="confirm" catchtap='confirmTime'>确定</text>
+          </view>
+          <view class="cont_model">
+            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{timevalue}}" catchchange="fnbindChange">
+              <!-- 时 -->
+              <picker-view-column>
+                <view wx:for="{{hours}}" wx:key="i" style="line-height: 50px">{{item}}时</view>
+              </picker-view-column>
+              <!-- 分 -->
+              <picker-view-column>
+                <view wx:for="{{minutes}}" wx:key="j" style="line-height: 50px">{{item}}分</view>
+              </picker-view-column>
+            </picker-view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>

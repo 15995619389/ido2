@@ -1,0 +1,124 @@
+/* pages/start/start.wxss */
+.page{
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  position: relative;
+}
+.bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background:linear-gradient(180deg,rgba(33,32,69,1) 0%,rgba(25,19,43,1) 100%);
+}
+.page-content{
+  position: absolute;
+  top: 254rpx;
+  /* 128rpx */
+  width: 100%;
+  text-align: center;
+}
+.title{
+  position: absolute;
+  left: 262rpx;
+  top: 222rpx;
+  width:228rpx;
+  height:50rpx;
+  font-size:40rpx;
+  font-family:FZZDHJW--GB1-0,FZZDHJW--GB1;
+  font-weight:normal;
+  color:rgba(255,255,255,1);
+  line-height:50rpx;
+  letter-spacing:8rpx;
+  text-align: center;
+  z-index: 2;
+}
+.content{
+  position: absolute;
+  top: 450rpx;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+.logo{
+  width: 156rpx;
+  height: 156rpx;
+}
+.tip-p{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(203,203,203,1);
+  line-height:34rpx;
+}
+.tip{
+  margin: 30rpx;
+  height:40rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium,PingFang-SC;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+  letter-spacing:5rpx;
+}
+.tip2{
+  padding: 0 200rpx;
+  height: 28rpx;
+  position: relative;
+}
+.tip3{
+  margin-bottom: 14rpx;
+  margin-top: 42rpx;
+}
+.text1,.text2{
+  height:28rpx;
+  font-size:20rpx;
+  font-family:PingFang-SC-Regular,PingFang-SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:28rpx;
+}
+.text1{
+  float: left;
+}
+.text2{
+  float: right;
+}
+.text-splice{
+  position: absolute;
+  top: 4rpx;
+  left: 50%;
+  margin-left: -1rpx;
+  width:2rpx;
+  height:22rpx;
+  background:rgba(255,255,255,1);
+  border-radius:1px;
+}
+.footer{
+  position: absolute;
+  width: 100%;
+  bottom: 86rpx;
+  text-align: center;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(104,104,104,1);
+  z-index: 2;
+}
+.login{
+  width: 486rpx !important;
+  height: 94rpx;
+  line-height: 94rpx;
+  margin-bottom: 30rpx;
+  border-radius: 60rpx;
+  padding: 0 0;
+  font-size: 30rpx;
+  color: #fff;
+  background: #1aad19;
+  font-weight: 300;
+}

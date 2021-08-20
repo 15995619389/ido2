@@ -1,0 +1,3 @@
+<!--pages/privacy/privacy.wxml-->
+<web-view src="{{ link }}"></web-view>
+<view class="border-top"></view>

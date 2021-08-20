@@ -1,0 +1,30 @@
+<!--pages/record/record.wxml-->
+<view class="record-page">
+	<view class="record-box">
+		<view class="page-header">
+			<image src="../../images/success.png" class="header_img"></image>
+			<view class="header_title">记录成功</view>
+		</view>
+		<view class="page-content">
+			<view wx:if="{{ isCurrentWeek }}">
+				<view class="success_time">本周第<text>{{ times }}</text>次</view>
+				<view wx:if="{{ type == 1 }}" class="type_tip type_banlv">
+					<image src="../../images/small1.png"></image><text>第{{ count }}次</text>
+				</view>
+				<view wx:elif="{{ type == 2 }}" class="type_tip type_feiji">
+					<image src="../../images/small2.png"></image><text>第{{ count }}次</text>
+				</view>
+				<view wx:elif="{{ type == 3 }}" class="type_tip type_mengyi">
+					<image src="../../images/small3.png"></image><text>第{{ count }}次</text>
+				</view>
+				<view wx:else class="type_tip type_jinyu">
+					<image src="../../images/small4.png"></image><text>第{{ count }}次</text>
+				</view>
+				<view class="tip">{{ tips }}</view>
+			</view>
+			<view class="btn-area">
+				<button type="primary" bindtap="goHome">查看日历</button>
+			</view>
+		</view>
+	</view>
+</view>

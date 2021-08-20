@@ -1,0 +1,121 @@
+/* pages/addressList/addressList.wxss */
+.page{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.page-header{
+  padding: 0 32rpx 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 9;
+}
+.page-header icon{
+  width: 28rpx;
+  height: 28rpx;
+  font-size: 28rpx;
+  position: absolute;
+  top: 14rpx;
+  left: 16rpx;
+}
+.page-header input{
+  height:72rpx;
+  background:rgba(142,142,147,0.12);
+  border-radius:20rpx;
+  padding: 0 16rpx 0 68rpx;
+  position: relative;
+  font-size:34rpx;
+  font-family:SFProText-Regular,SFProText;
+  font-weight:400;
+}
+.list{
+  padding: 102rpx 26rpx 0;
+}
+.list .item {
+  display: flex;
+  height: 128rpx;
+  cursor: pointer;
+}
+.list .item1{
+  height: 44rpx;
+  padding-left: 46rpx;
+  padding-bottom: 30rpx;
+  color: #4DC0FF;
+}
+.list .item2{
+  height: 44rpx;
+  padding-bottom: 20rpx;
+}
+.list .item .poster {
+  width: 26rpx;
+  height: 34rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+.item-city-icon{
+  display: flex;
+  align-items: center
+}
+.list .item2 .poster2 {
+  width: 28rpx;
+  height: 24rpx;
+  display: inline-block;
+  margin-right: 24rpx;
+  margin-top: 0;
+}
+.list .item .meta{
+  flex: 1;
+  padding-top: 20rpx;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+.list .item1 .meta,.list .item2 .meta{
+  padding-top: 0;
+}
+.list .item .meta .meta_title{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular,PingFang-SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:44rpx;
+  letter-spacing:1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list .item .meta .meta_tip{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular,PingFang-SC;
+  font-weight:400;
+  color:rgba(116,115,115,1);
+  line-height:34rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-icon{
+  display: flex;
+  align-items: center
+}
+
+.list .tips {
+  font-size: 28rpx;
+  text-align: center;
+  padding: 50rpx;
+  color: #ccc;
+}
+
+.list .tips image,
+.list .tips text {
+  vertical-align: middle;
+}
+.list .tips image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}

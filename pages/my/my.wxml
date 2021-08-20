@@ -1,0 +1,29 @@
+<!--pages/my/my.wxml-->
+<view class="my-page">
+  <view class="page-header" bindtap="onSetMy">
+    <image src="../../images/my_bg.png" class="header-bg"></image>
+    <view class="user">
+      <view wx:if="{{ isLogin }}">
+        <image src="{{ avatarUrl }}" class="user_bg"></image>
+        <view>{{ userInfo.nickName }}</view>
+        <view class="userId">ID：{{ userInfo.userId }}</view>
+      </view>
+      <view wx:else bindtap="onUserLogin">
+        <image src="../../images/userIcon.png" class="user_bg"></image>
+        <view class="goto-view">点击登录账户</view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view wx:if="{{ isLogin }}" class="page-content" hover-class='wsui-btn__hover_list'>
+      <view class="item"  bindtap="onUpdate">手势调整<image src="../../images/pricacy2.png" class="my_set"></image></view>
+    </view>
+    <view class="page-content" hover-class='wsui-btn__hover_list'>
+      <view class="item"  bindtap="onPricacy">隐私政策<image src="../../images/rate2.png" class="my_set2"></image></view>
+    </view>
+    <view class="page-content" hover-class='wsui-btn__hover_list'>
+      <view class="item"  bindtap="onAbout">关于我行<image src="../../images/about.png" class="my_set3"></image></view>
+    </view>
+  </view>
+</view>
+<view class="border-bottom"></view>
